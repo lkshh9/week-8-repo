@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {Link} from 'react-router-dom';
 
 const Login = () => {
@@ -15,7 +15,7 @@ const Login = () => {
         const data = await response.json();
         if (data.token) {
             localStorage.setItem("token", data.token)
-            window.location = "/todos";
+            window.location.href = "/todos";
         } else {
             alert("invalid credentials");
         }

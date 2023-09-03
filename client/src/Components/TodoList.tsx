@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import {  useState, useEffect } from 'react';
 import { authState } from '../store/authState.js';
 import {useRecoilValue} from "recoil";
 
@@ -46,7 +46,7 @@ const TodoList = () => {
         setTodos(newTodos);
     };
 
-    const markDone = async (id) => {
+    const markDone = async (id : String) => {
         const response = await fetch(`http://localhost:3000/todo/todos/${id}/done`, {
             method: 'PATCH',
             headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
@@ -62,7 +62,7 @@ const TodoList = () => {
                 <div style={{marginTop: 25, marginLeft: 20}}>
                     <button onClick={() => {
                         localStorage.removeItem("token");
-                        window.location = "/login";
+                        window.location.href = "/login";
                     }}>Logout</button>
                 </div>
             </div>
